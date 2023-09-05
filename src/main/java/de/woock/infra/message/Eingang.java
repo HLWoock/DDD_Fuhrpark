@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j2;
 @Component
 public class Eingang {
 	@JmsListener(destination = "Fuhrpark", containerFactory = "myFactory", subscription = "stattauto")
-	@SendTo("hermie")
+	@SendTo("status")
 	public Message<String> antwortVerarbeiten(AnfrageGestellt anfrageGestellt) {
 		String frage = anfrageGestellt.getFrage();
 		log.debug("Anfrage eingegangen: {}", frage);
